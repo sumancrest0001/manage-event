@@ -1,0 +1,132 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ */
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "bootstrap";
+
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500&display=swap');
+.profile-image {
+  border-radius: 50%;
+}
+
+.carousel-section {
+  margin-top: 20px;
+}
+.carousel-item-image {
+  height: 30rem;
+  width: 90%;
+  margin:auto;
+}
+
+ /* Events section */
+.main {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.events {
+  margin-top: 20px;
+}
+
+.section-title {
+  background-color: #89eb34;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.events-wrapper {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.event {
+  width: 31%;
+  margin-right: 20px;
+   &__img {
+    width: 100%;
+  } 
+}
+
+/* event show page */
+
+.event-show-section {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.full-event {
+  text-align: start;
+
+  &__img {
+    width: 100%;
+    height: 30rem;
+  }
+}
+
+.single-event {
+  display: grid;
+  grid-template-areas: 'img content content'
+      'img content content'
+      'button button button';
+      padding: 5px;
+      font-family: 'Roboto', sans-serif;
+
+  &__img {
+    grid-area: img;
+    width: 150px;
+    height: 100px;
+    margin-right: 15px;
+  }
+  &__content {
+    grid-area: content;
+  }
+  &__buttons {
+    grid-area: button;
+  }
+}
+
+.price-btn,
+.join-btn {
+  margin-right: 20px;
+  padding: 10px;
+  background-color: #89eb34;
+  color: #000;
+}
+
+
+/* user-profile page */
+
+.user {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.user-profile {
+  padding: 15px;
+  background-color: #ebe9e6;
+  height: 100vh;
+  overflow-y: scroll;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  -webkit-box-shadow: 0px 3px 11px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 11px -3px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 11px -3px rgba(0,0,0,0.75);
+}

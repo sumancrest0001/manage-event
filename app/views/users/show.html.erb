@@ -1,0 +1,18 @@
+<div class="fluid-container d-flex flex-row user">
+  <div class="user-profile col-sm-12 col-md-4">
+  <%= link_to image_tag avatar_url(current_user, 100), alt: "#{current_user.first_name}", class: 'profile-image' %>
+  <h4><%= name(@user)%></h4>
+  <p>From: <%= @user.email%></p>
+  <p>From: <%= @user.address%></p>
+  <p>Contact No. <%= @user.contact%> </p>
+  </div>
+<div class="user-events col-sm-12 col-md-7">
+<div class="user-events-organized col-12">
+  <h3>Organized Events</h3>
+  <%= render 'shared/single_event', event: @organized_events %>
+</div>
+<div class="user-events-organized col-12">
+  <h3>Attended Events</h3>
+  <%= render 'shared/single_event', event: @attended_events %>
+</div>
+</div>

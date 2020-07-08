@@ -1,0 +1,17 @@
+<% local_assigns[:event].each do |event| %>
+  <div class="single-event">
+    <img src="/assets/music2.jpg" alt="#{event.title}" class="single-event__img">
+    <div class="single-event__content">
+      <h5><%= event.title%></h5>
+      <p>Organized by: <%= link_to name(event.user), user_path(event.user)%></p>
+      <p>$ <%= event.price%></p>
+    </div>
+    <div class="buttons">
+      <%= link_to 'Show', event_path(event)%>
+      <%= link_to "Update", edit_event_path(event) %>
+      <%= link_to 'Delete', event_path(event),
+            data: {confirm: 'Are you sure?'}, method: :delete %>
+    </div>
+    <%= button_to "Join Event", { controller: 'attendences', action: 'create', attendee_id: current_user, attended_event_id: event.id}, method: :post %>
+  </div>
+  <% end %>

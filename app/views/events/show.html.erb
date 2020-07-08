@@ -1,0 +1,25 @@
+<main class="event-show-section">
+  <div class="full-event mr-auto col-sm-12 col-md-7">
+    <img src="/assets/music.jpg" alt="title of the event" class="full-event__img">
+    <h3><%= @event.title %></h3>
+    <p><%= @event.features %></p>
+    <p>Author: <%= link_to content_tag("span", name(@event.user)), user_path(@event.user), :class=>"event-info" %></p>
+
+    <div>
+      <span class="price-btn">$20</span>
+      <%= button_to "Join Event", { controller: 'attendences', action: 'create', attendee_id: current_user, attended_event_id: @event.id}, method: :post %>
+    </div>
+  </div>
+
+  <aside class="related-events col-sm-12 col-md-5">
+  <div>
+    <h3>Related Event</h3>
+    <%= render 'shared/single_event', event: @related_events %>
+  </div>
+
+  <div>
+    <h3>Popular Events</h3>
+    <%= render 'shared/single_event', event: @popular_events %>
+  </div>
+  </aside>
+</main>

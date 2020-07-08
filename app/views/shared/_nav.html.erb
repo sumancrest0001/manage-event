@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg">
+  <%= link_to "Private Events",root_path, class: "navbar-brand mr-auto" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon bg-primary"></span>
+  </button>
+
+  <div class="collapse navbar-collapse col-7 d-flex justify-content-between" id="navbarTogglerDemo02">
+    <form class="form-inline ml-3">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item d-flex flex-row ml-2">
+      <% if current_user %>
+      <p class="my-auto mr-3"><%= current_user.first_name %></p>
+      <%= link_to user_path(current_user) do %>
+        <%= image_tag avatar_url(current_user, 40), alt: "#{current_user.first_name}", class: 'profile-image' %>
+      <% end %>
+      </li>
+      <li class="nav-item ml-2">
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn-primary nav-link"%>
+      </li>
+      <li class="nav-item ml-2">
+        <%= link_to "Create Event", new_event_path, class: "btn-primary nav-link"%>
+      </li>
+    <% else %>
+      <li class="nav-item ml-2">
+      <%= link_to "Log In", new_user_session_path, class: "btn-primary nav-link"%>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</nav>
