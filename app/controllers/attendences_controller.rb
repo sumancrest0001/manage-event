@@ -4,7 +4,9 @@ class AttendencesController < ApplicationController
 
   def create
     attendence = Attendence.create(attendence_params)
+    @event = Event.find(params[:attended_event_id])
     if attendence.save
+      Notification.create(recipient: @event.user, actor: current_user, action: "joined", notifiable: @event)
       flash[:success] = 'You joined the event'
     else
       flash[:danger] = 'Something went wrong.'

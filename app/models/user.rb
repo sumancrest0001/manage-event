@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :notifications
   has_many :events
   has_many :attendences, foreign_key: "attendee_id", dependent: :destroy
   has_many :attended_events, through: "attendences", source: "attended_event"

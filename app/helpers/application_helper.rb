@@ -16,4 +16,15 @@ module ApplicationHelper
   def name (user)
     return "#{user.first_name} #{user.last_name}"
   end
+
+
+  def display_buttons(event)
+    if current_user == event.user
+      (link_to 'Show', event_path(event), class: "btn-sm btn-primary") + 
+      (link_to "Update", edit_event_path(event), class: "ml-2 btn-sm btn-success") +
+      (link_to 'Delete', event_path(event),
+            data: {confirm: 'Are you sure?'}, method: :delete, class: "ml-2 btn-sm btn-danger")
+  
+    end
+  end
 end

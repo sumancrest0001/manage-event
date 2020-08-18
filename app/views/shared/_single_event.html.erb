@@ -2,16 +2,15 @@
   <div class="single-event">
     <img src="/assets/music2.jpg" alt="#{event.title}" class="single-event__img">
     <div class="single-event__content">
-      <h5><%= event.title%></h5>
-      <p>Organized by: <%= link_to name(event.user), user_path(event.user)%></p>
-      <p>$ <%= event.price%></p>
+      <h5><%= event.title.humanize %></h5>
+      <p><%= event.address%></p>
+      <p>Price: $ <%= event.price%></p>
     </div>
-    <div class="buttons">
-      <%= link_to 'Show', event_path(event)%>
-      <%= link_to "Update", edit_event_path(event) %>
-      <%= link_to 'Delete', event_path(event),
-            data: {confirm: 'Are you sure?'}, method: :delete %>
+    <div class="single-event__buttons">
+      <%= button_to "Join Event", { controller: 'attendences', action: 'create', attendee_id: current_user, attended_event_id: event.id}, method: :post, class: "join-button" %>
+      <div class="crud-buttons">
+        <%= display_buttons(event) %>
+      </div>
     </div>
-    <%= button_to "Join Event", { controller: 'attendences', action: 'create', attendee_id: current_user, attended_event_id: event.id}, method: :post %>
-  </div>
+    </div>
   <% end %>

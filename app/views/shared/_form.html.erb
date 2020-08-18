@@ -10,7 +10,11 @@
     <%= f.text_area :features, class: 'form-control', placeholder: "Features of the event", size: "30*6"%><br>
     <%= f.label :price %>
     <%= f.number_field :price, class: 'form-control', placeholder: "Price" %><br>
-    <%= f.submit local_assigns[:button_lebel], class: "btn btn-primary" %>
+    <label class="btn btn-primary">
+      Upload event image <%= f.file_field :event_image, style: 'display: none;'%>
+    </label><br>
+    <%= f.submit local_assigns[:button_lebel], class: "btn btn-success" %>
+    <%= link_to 'Back', 'javascript:history.back()', class: 'btn btn-danger' %>
   <% end %>
-  <%= link_to 'Back', 'javascript:history.back()' %>
+
 </div>

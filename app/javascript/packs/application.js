@@ -17,3 +17,26 @@ import "./src/application.scss";
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+$(document).ready(function () {
+  var notificationIcon = $("#navbarDropdown");
+  console.log(notificationIcon);
+  if (notificationIcon.length > 0) {
+    $.ajax({
+      url: "/notifications.json",
+      dataType: "JSON",
+      method: "GET",
+      success: function (data, textStatus, jqXHR) {
+        const items = $.map(data, function (notification) {
+          return `<p class="dropdown-item"><span><a href='${notification.actorUrl}'>${notification.actor}</a>
+        ${ notification.action} ${notification.notifiable.type} </span><span><a href='${notification.url}'>${notification.notifiable.title}</a></span>
+        </p>`});
+        $("[data-behavior='dropdown-items']").html(items);
+      },
+      error: function (jqXHR, textStatus, errorThrown) { console.log(textStatus); }
+    });
+  }
+
+  $(".toggle-button").click(function () {
+    $(".notification-section").toggleClass("show");
+  });
+});

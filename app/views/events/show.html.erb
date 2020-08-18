@@ -1,6 +1,6 @@
 <main class="event-show-section">
-  <div class="full-event mr-auto col-sm-12 col-md-7">
-    <img src="/assets/music.jpg" alt="title of the event" class="full-event__img">
+  <div class="full-event mr-auto col-md-7 col-sm-12">
+  <%= image_tag("/assets/music.jpg", size: 100, class: 'full-event__img')%>
     <h3><%= @event.title %></h3>
     <p><%= @event.features %></p>
     <p>Author: <%= link_to content_tag("span", name(@event.user)), user_path(@event.user), :class=>"event-info" %></p>
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <aside class="related-events col-sm-12 col-md-5">
+  <aside class="related-events col-md-5 col-sm-12">
   <div>
     <h3>Related Event</h3>
     <%= render 'shared/single_event', event: @related_events %>

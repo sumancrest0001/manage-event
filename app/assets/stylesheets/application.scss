@@ -10,16 +10,21 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  */
- @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "bootstrap";
 
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500&display=swap');
+body {
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
 .profile-image {
   border-radius: 50%;
 }
 
 .carousel-section {
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 .carousel-item-image {
   height: 30rem;
@@ -31,18 +36,18 @@
 .main {
   width: 90%;
   margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .events {
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 
 .section-title {
   background-color: #89eb34;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .events-wrapper {
@@ -52,8 +57,9 @@
 }
 
 .event {
-  width: 31%;
-  margin-right: 20px;
+  width: 30%;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
    &__img {
     width: 100%;
   } 
@@ -65,8 +71,9 @@
   width: 90%;
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 
 .full-event {
@@ -80,6 +87,8 @@
 
 .single-event {
   display: grid;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
   grid-template-areas: 'img content content'
       'img content content'
       'button button button';
@@ -88,22 +97,54 @@
 
   &__img {
     grid-area: img;
-    width: 150px;
-    height: 100px;
-    margin-right: 15px;
+    width: 15rem;
+    height: 10rem;
+    margin-right: 1.5rem;
   }
   &__content {
     grid-area: content;
+
+    h5 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+    }
   }
   &__buttons {
     grid-area: button;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 0;
   }
 }
+.join-button {
+  width: 15rem;
+  border-radius: 0;
+  border: 1px solid white;
+  background-color: #89eb34;
+  padding: 0.5rem;
+  color: #fff;
+}
+
+.crud-buttons {
+  display: flex;
+  align-items: center;
+  a:hover {
+    text-decoration: none;
+  }
+
+}
+
 
 .price-btn,
 .join-btn {
-  margin-right: 20px;
-  padding: 10px;
+  margin-right: 2rem;
+  padding: 1rem;
   background-color: #89eb34;
   color: #000;
 }
@@ -114,11 +155,11 @@
 .user {
   width: 90%;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 
 .user-profile {
-  padding: 15px;
+  padding: 1.5rem;
   background-color: #ebe9e6;
   height: 100vh;
   overflow-y: scroll;
@@ -126,7 +167,38 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  -webkit-box-shadow: 0px 3px 11px -3px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 3px 11px -3px rgba(0,0,0,0.75);
-  box-shadow: 0px 3px 11px -3px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 3px 1.1rem -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 1.1rem -3px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 1.1rem -3px rgba(0,0,0,0.75);
+}
+
+.toggle-button {
+  position: relative;
+}
+
+/* navigation partial */
+.notification-section {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 10;
+  padding: 2rem 0;
+  width: 30rem;
+  background-color: #fff;
+  box-shadow: 0 0.8rem 5rem 2rem rgba(101, 90, 86, 0.1);
+  transition: all 0.5s 0.2s;
+}
+
+.show {
+  display: block;
+}
+
+.dropdown-item {
+  width: 100%;
+}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  body {
+    font-size: 8px;
+  }
 }
