@@ -1,10 +1,10 @@
 <nav class="navbar">
-  <%= link_to "Private Events",root_path, class: "col-md-navbar-brand mr-auto" %>
-    <form class="form-inline ml-3">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <ul class="navbar-nav d-flex flex-row  mt-2 mt-lg-0">
+  <%= link_to "Private Events",root_path, class: "navbar-brand" %>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  <ul class="navbar-nav d-flex flex-row">
     <% if current_user %>
       <li class="nav-item d-flex flex-row ml-2">
         <p class="my-auto mr-3"><%= current_user.first_name %></p>
@@ -15,21 +15,21 @@
       <li class="nav-item dropdown">
         <button type="button" id="navbarDropdown" class="fa fa-bell toggle-button" data-behavior="notifications" >
         </button>
-        <div class="notification-section" data-behavior="dropdown-items">
-          
-        </div>
       </li>
       <li class="nav-item ml-2">
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn-primary nav-link"%>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
       </li>
       <li class="nav-item ml-2">
-        <%= link_to "Create Event", new_event_path, class: "btn-primary nav-link"%>
+        <%= link_to "Create Event", new_event_path, class: "nav-link"%>
       </li>
     <% else %>
       <li class="nav-item ml-2">
-      <%= link_to "Log In", new_user_session_path, class: "btn-primary nav-link"%>
+      <%= link_to "Log In", new_user_session_path, class: "nav-link"%>
       </li>
     <% end %>
-    </ul>
+  </ul>
+
+  <div class="notification-section" data-behavior="dropdown-items">
+          
   </div>
 </nav>
