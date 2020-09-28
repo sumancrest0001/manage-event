@@ -7,7 +7,9 @@
     <p><%= @event.features %></p>
     <div class="event__address">Happening in: <%=@event.address%></div>
     <p>Organized By: <%= link_to content_tag("span", name(@event.user)), user_path(@event.user), :class=>"event-info" %></p>
-    
+    <div class="attendee-list">
+      <%= render 'attendees_list', attendees: @event.attendees %>
+    </div>
     <div>
       <span class="price-btn">$20</span>
       <%= display_join_button(@event, "join-btn") %>

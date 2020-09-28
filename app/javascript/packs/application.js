@@ -39,4 +39,8 @@ $(document).ready(function () {
   $(".toggle-button").click(function () {
     $(".notification-section").toggleClass("show");
   });
+
+  /*   $(".attendees-lists-button").click(function(){
+  
+    }) */
 });

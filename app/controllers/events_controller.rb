@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :destroy, :edit, :update]
+  before_action :set_event, only: [:destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :edit]
   before_action only:[:edit, :update, :destroy] do
     check_admin (@event.user)
@@ -23,6 +23,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.includes(:attendees).find_by(id: params[:id])
     @related_events = Event.where(user_id: @event.user_id)
     @popular_events = Event.top_3
   end

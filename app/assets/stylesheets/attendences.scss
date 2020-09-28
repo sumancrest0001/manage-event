@@ -1,3 +1,17 @@
 // Place all the styles related to the attendences controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.single-attendee {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem;
+  -webkit-box-shadow: 4px 10px 15px -7px rgba(0,0,0,0.76);
+  -moz-box-shadow: 4px 10px 15px -7px rgba(0,0,0,0.76);
+  box-shadow: 4px 10px 15px -7px rgba(0,0,0,0.76);
+}
+
+.profile-image {
+  margin-right: 1rem;
+}
