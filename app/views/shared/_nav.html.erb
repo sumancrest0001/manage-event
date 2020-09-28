@@ -4,32 +4,25 @@
     <input class="form-control mr-sm-2" type="search" placeholder="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
-  <ul class="navbar-nav d-flex flex-row">
-    <% if current_user %>
-      <li class="nav-item d-flex flex-row ml-2">
-        <p class="my-auto mr-3"><%= current_user.first_name %></p>
-        <%= link_to user_path(current_user) do %>
-          <%= image_tag avatar_url(current_user, 40), alt: "#{current_user.first_name}", class: 'profile-image' %>
-        <% end %>
-      </li>
-      <li class="nav-item dropdown">
-        <i id="navbarDropdown" class="fa fa-bell toggle-button" data-behavior="notifications">
-        </i>
-      </li>
-      <li class="nav-item ml-2">
+  <% if current_user %>
+  <div class="dropdown-list">
+    <div class="dropdown">
+      <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= image_tag avatar_url(current_user, 40), alt: "#{current_user.first_name}", class: 'profile-image' %>
+      </div>
+      <div class="dropdown-menu" aria:{labelledby: "dropdownMenuButton"}>
+        <%= link_to name(current_user), user_path(current_user), class: "nav-link" %>
         <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
-      </li>
-      <li class="nav-item ml-2">
         <%= link_to "Create Event", new_event_path, class: "nav-link"%>
-      </li>
-    <% else %>
-      <li class="nav-item ml-2">
-      <%= link_to "Log In", new_user_session_path, class: "nav-link"%>
-      </li>
-    <% end %>
-  </ul>
-
-  <div class="notification-section" data-behavior="dropdown-items">
-          
+      </div>
+    </div>
+    <i id="navbarDropdown" class="fa fa-bell toggle-button" data-behavior="notifications"></i>
+  </div>
+  <% else %>
+  <li class="nav-item ml-2">
+    <%= link_to "Log In", new_user_session_path, class: "nav-link"%>
+  </li>
+  <% end %>
+  <div class="notification-section" data-behavior="dropdown-items">  
   </div>
 </nav>

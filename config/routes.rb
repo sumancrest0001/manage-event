@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root 'pages#home'
   get '/about', to: 'pages#about'
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
-  resources :users, :events, :attendences
+  resources :users
+  resources :events do
+    resources :attendences, shallow: true
+  end
   resources :notifications do
     collection do
       post :mark_as_read

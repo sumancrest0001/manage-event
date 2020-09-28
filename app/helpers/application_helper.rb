@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def name (user)
-    return "#{user.first_name} #{user.last_name}"
+    return "#{user.first_name} #{user.last_name}".capitalize
   end
 
 
@@ -30,8 +30,12 @@ module ApplicationHelper
 
 
   def display_join_button (event, css_class)
-    return (button_to "Join Event", { controller: 'attendences', action: 'create', attendee_id: current_user.id, attended_event_id: @event.id}, class: css_class, method: :post) unless event.attendees.include?(current_user) && already_happened?(event)
-    raw("<button type='button' class=#{css_class} disabled>Already Joined</button>")
+    if current_user
+      return (button_to "Join Event", event_attendences_path(event), class: css_class, method: :post) unless event.attendees.include?(current_user) && already_happened?(event)
+      raw("<button type='button' class=#{css_class} disabled>Already Joined</button>")
+    else
+      return (button_to "Join Event", event_attendences_path(event), class: css_class, method: :post) 
+    end
   end
 
   def already_happened? event

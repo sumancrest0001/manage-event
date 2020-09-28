@@ -21,6 +21,10 @@ body {
   box-sizing: border-box;
 }
 
+li {
+  list-style: none;
+}
+
 .navbar {
   position: relative;
 }
@@ -45,10 +49,16 @@ align-items: center;
   margin: 0 1rem;
   font-size: 1.5rem;
   color: #aaa;
-  
+
   &:hover {
     color:#0056b3;
   }
+}
+
+.dropdown-list {
+display: flex;
+flex-direction: row;
+align-items: center;
 }
 
 .profile-image {
@@ -202,6 +212,15 @@ align-items: center;
   -webkit-box-shadow: 0px 3px 1.1rem -3px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 3px 1.1rem -3px rgba(0,0,0,0.75);
   box-shadow: 0px 3px 1.1rem -3px rgba(0,0,0,0.75);
+}
+
+.nav-link {
+  color: #000;
+  font-size: 700;
+
+  &:hover {
+    color: #0056b3;
+  }
 }
 
 /* navigation partial */

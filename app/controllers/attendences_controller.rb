@@ -1,10 +1,9 @@
 class AttendencesController < ApplicationController
   before_action :authenticate_user!, only: [:create]
-
+  before_action :set_event, only:[:create, :index, :new]
 
   def create
-    attendence = Attendence.create(attendence_params)
-    @event = Event.find(params[:attended_event_id])
+    attendence = @event.attendences.create(attendee_id: current_user.id)
     if attendence.save
       Notification.create(recipient: @event.user, actor: current_user, action: "joined", notifiable: @event)
       flash[:success] = 'You joined the event'
@@ -19,11 +18,11 @@ class AttendencesController < ApplicationController
   private
 
   def check_attendence
-    event = Attendence.where(attendee_id: :attendee_id, attended_event_id: :event_id)
+    event = Attendence.where(attended_event_id: :event_id)
     return event.nil?
   end
 
-  def attendence_params
-    params.permit(:attended_event_id, :attendee_id)
+  def set_event 
+    @event = Event.find_by(id: params[:event_id])
   end
 end
