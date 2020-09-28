@@ -7,7 +7,7 @@
       <p>Price: $ <%= event.price%></p>
     </div>
     <div class="single-event__buttons">
-      <%= button_to "Join Event", { controller: 'attendences', action: 'create', attendee_id: current_user, attended_event_id: event.id}, method: :post, class: "join-button" %>
+      <%= display_join_button(event, 'join-button') %>
       <div class="crud-buttons">
         <%= display_buttons(event) %>
       </div>

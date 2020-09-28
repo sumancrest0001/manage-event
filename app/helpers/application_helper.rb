@@ -27,4 +27,14 @@ module ApplicationHelper
   
     end
   end
+
+
+  def display_join_button (event, css_class)
+    return (button_to "Join Event", { controller: 'attendences', action: 'create', attendee_id: current_user.id, attended_event_id: @event.id}, class: css_class, method: :post) unless event.attendees.include?(current_user) && already_happened?(event)
+    raw("<button type='button' class=#{css_class} disabled>Already Joined</button>")
+  end
+
+  def already_happened? event
+    event.date < DateTime.now
+  end
 end
