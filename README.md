@@ -25,6 +25,7 @@ Run the following commands
 - `rails server`
 
 ## Future improvements
+- [X] Add event authorization.
 - [ ] Follower and followed for each user
 - [ ] Add payment integration to join events.
 - [ ] Add a group chat room for each event.
