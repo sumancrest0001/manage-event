@@ -1,0 +1,20 @@
+<div class="col-md-6 m-auto">
+  <%=form_for(@event, url: local_assigns[:url]) do |f|  %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control', autofocus: true, placeholder: "Title of the event"%><br>
+    <%= f.label :date %>
+    <%= f.date_field :date, class: 'form-control', placeholder: "Event Date"%><br>
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'form-control', placeholder: "Where it is happening"%><br>
+    <%= f.label :features %>
+    <%= f.text_area :features, class: 'form-control', placeholder: "Features of the event", size: "30*6"%><br>
+    <%= f.label :price %>
+    <%= f.number_field :price, class: 'form-control', placeholder: "Price" %><br>
+    <label class="btn btn-primary">
+      Upload event image <%= f.file_field :event_image, style: 'display: none;'%>
+    </label><br>
+    <%= f.submit local_assigns[:button_lebel], class: "btn btn-success" %>
+    <%= link_to 'Back', 'javascript:history.back()', class: 'btn btn-danger' %>
+  <% end %>
+
+</div>

@@ -1,0 +1,21 @@
+<% provide(:title, 'Home') %>
+<%= render 'carousel' %>
+
+<main class=" main fluid-container">
+  <section class="events">
+    <h1 class="text-start section-title">Future Events</h1>
+    <div class="events-wrapper">
+    <%= render 'event_card', events: @upcoming_events %>
+
+    </div>
+  </section>
+  <section class="events">
+    <h1 class="text-start section-title">Past Events</h1>
+    <div class="events-wrapper">
+      <%= render 'event_card', events: @past_events %>
+    </div>
+  </section>
+  </main>
+
+
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
