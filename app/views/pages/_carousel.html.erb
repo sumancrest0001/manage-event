@@ -7,12 +7,12 @@
     </ol>
     <div class="carousel-inner">
     <% @latest_events.each_with_index do |latest_event, index| %>
-      <% if index == 0%>
-        <div class="carousel-item active">
+      <% if index == 0 %>
+      <div class="carousel-item active">
       <% else %>
-        <div class="carousel-item">
+      <div class="carousel-item">
       <% end %>
-        <%= image_tag("/assets/music.jpg", class: "d-block carousel-item-image", alt: "first")%>
+        <%= image_tag(latest_event.event_image_url, class: "d-block carousel-item-image", alt: "event-#{index}")%>
         <div class="carousel-caption d-none d-md-block">
           <h5><%= latest_event.title %></h5>
           <p><%= latest_event.date %></p>

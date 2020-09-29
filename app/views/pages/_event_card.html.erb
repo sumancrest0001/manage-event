@@ -1,9 +1,9 @@
 
 <% local_assigns[:events].each do |event| %>
   <div class="card event">
-    <img src="/assets/music3.jpeg" alt="event image" class="event__img">
+  <%= image_tag(event.event_image_url, alt:"event image", class:"event__img") %>
     <div class="card-body">
-      <h4><%= link_to event.title, "/events/#{event.id}" %></h4>
+      <h4><%= link_to event.title, event_path(event) %></h4>
       <div class="d-flex my-2">
         <span class="mr-auto"><%= event.address%></span>
         <span><%= event.date%></span>
