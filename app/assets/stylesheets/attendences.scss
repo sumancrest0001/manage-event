@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
+.attendee-list {
+  margin: 1.5rem auto;
+}
+
 .single-attendee {
   display: flex;
   flex-direction: row;
@@ -14,4 +19,14 @@
 
 .profile-image {
   margin-right: 1rem;
+}
+
+.user-name {
+  margin-left: 1rem;
+  font-weight: 800;
+  color: #000;
+  &:hover {
+    text-decoration: none;
+  }
+
 }

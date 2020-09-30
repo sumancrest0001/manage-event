@@ -1,6 +1,6 @@
 <% local_assigns[:attendees].each do |attendee| %>
-    <div class="single-attendee">
-      <%= image_tag avatar_url(current_user, 40), alt: "#{current_user.first_name}", class: 'profile-image' %>
-      <%= link_to name(attendee), user_path(attendee), class: "user-name" %>
+  <div class="single-attendee col-md-6 col-sm-10">
+    <%= image_tag avatar_url(attendee, 40), alt: "#{attendee.first_name}", class: 'profile-image' %>
+    <%= link_to name(attendee), user_path(attendee), class: "user-name" %>
   </div>
 <% end %>
