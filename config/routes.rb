@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'users/show'
   root 'pages#home'
   get '/about', to: 'pages#about'
-  devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   resources :users
   resources :events do
     resources :attendences, shallow: true

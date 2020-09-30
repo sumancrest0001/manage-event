@@ -1,6 +1,6 @@
 class AttendencesController < ApplicationController
   before_action :authenticate_user!, only: [:create]
-  before_action :set_event, only:[:create, :index, :new]
+  before_action :set_event, only: [:create, :index, :new]
 
   def create
     if check_existing_attendence
@@ -17,15 +17,14 @@ class AttendencesController < ApplicationController
     end
   end
 
-
   private
 
-  def check_existing_attendence 
+  def check_existing_attendence
     event = current_user.attendences.where(attended_event_id: params[:event_id])
     return event.exists?
   end
 
-  def set_event 
+  def set_event
     @event = Event.find_by(id: params[:event_id])
   end
 end

@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :edit]
-  before_action only:[:edit, :update, :destroy] do
+  before_action only: [:edit, :update, :destroy] do
     check_admin (@event.user)
   end
   def new
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
   def edit
   end
 
-  def update 
+  def update
     if @event.update event_params
       flash[:success] = 'Event is successfully updated !'
       redirect_to @event
@@ -49,18 +49,16 @@ class EventsController < ApplicationController
     end
   end
 
-
-
   private
 
-  def set_event 
+  def set_event
     @event = Event.find_by(id: params[:id])
   end
 
   def require_login
     unless current_user
       flash[:danger] = "You must be logged in to access this section"
-      redirect_to new_user_session_path 
+      redirect_to new_user_session_path
     end
   end
 
