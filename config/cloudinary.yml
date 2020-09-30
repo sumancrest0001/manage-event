@@ -1,0 +1,13 @@
+development:
+  cloud_name: dkrunzl9g
+  api_key: '477871546875114'
+  api_secret: WipnJlKCfoLu5VqYmPhiu2A7sbw
+  secure: true
+  cdn_subdomain: true
+
+production:
+  cloud_name: dkrunzl9g
+  api_key: '477871546875114'
+  api_secret: WipnJlKCfoLu5VqYmPhiu2A7sbw
+  secure: true
+  cdn_subdomain: true

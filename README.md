@@ -9,8 +9,8 @@ This is a platform for users to add upcoming event they are organizing and adver
 
 ## Screenshots
 
-![index](app/assets/images/event-manager.png)
-![show page](app/assets/images/event-manager1.png)
+![index](app/assets/images/event2.png)
+![show page](app/assets/images/event1.png)
 
 ## [Live demo](https://github.com/sumancrest0001/manage-event/)
 
