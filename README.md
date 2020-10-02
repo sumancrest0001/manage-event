@@ -12,7 +12,7 @@ This is a platform for users to add upcoming event they are organizing and adver
 ![index](app/assets/images/event2.png)
 ![show page](app/assets/images/event1.png)
 
-## [Live demo](https://github.com/sumancrest0001/manage-event/)
+## [Live demo](https://www.loom.com/share/34ba80bc230242dbbd67a55f49de328a)
 
 ## Getting started
 Run the following commands
