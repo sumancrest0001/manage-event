@@ -8,7 +8,7 @@
   <div class="dropdown-list">
     <div class="dropdown">
       <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= image_tag avatar_url(current_user, 40), alt: "#{current_user.first_name}", class: 'profile-image' %>
+        <%= image_tag avatar_url(current_user, 40), alt: "#{current_user.first_name}", class: 'navbar-profile-image' %>
       </div>
       <div class="dropdown-menu" aria:{labelledby: "dropdownMenuButton"}>
         <%= link_to name(current_user), user_path(current_user), class: "nav-link" %>
@@ -16,7 +16,7 @@
         <%= link_to "Create Event", new_event_path, class: "nav-link"%>
       </div>
     </div>
-    <i id="navbarDropdown" class="fa fa-bell toggle-button" data-behavior="notifications"></i>
+    <div><i id="navbarDropdown" class="fa fa-bell toggle-button" data-behavior="notifications"></i><span class="unread-count"></span></div>
   </div>
   <% else %>
   <li class="nav-item ml-2">
@@ -24,5 +24,6 @@
   </li>
   <% end %>
   <div class="notification-section" data-behavior="dropdown-items">  
+  
   </div>
 </nav>

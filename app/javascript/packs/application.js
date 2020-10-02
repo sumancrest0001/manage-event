@@ -19,7 +19,7 @@ import "./src/application.scss";
 // const imagePath = (name) => images(name, true)
 $(document).ready(function () {
   var notificationIcon = $("#navbarDropdown");
-  console.log(notificationIcon);
+  var unreadCount = $(".unread-count");
   if (notificationIcon.length > 0) {
     $.ajax({
       url: "/notifications.json",
@@ -27,14 +27,25 @@ $(document).ready(function () {
       method: "GET",
       success: function (data, textStatus, jqXHR) {
         const items = $.map(data, function (notification) {
-          return `<p class="dropdown-item"><span><a href='${notification.actorUrl}'>${notification.actor}</a>
-        ${ notification.action} ${notification.notifiable.type} </span><span><a href='${notification.url}'>${notification.notifiable.title}</a></span>
-        </p>`});
+          return `<p class="item"><a href=${notification.actorUrl} class="full-name">${notification.actor}</a> ${notification.action} ${notification.notifiable.type} <span class="event-title">"${notification.notifiable.title}"</span></p>`
+        });
+        $(".unread-count").text(data.length == 0 ? '' : data.length);
         $("[data-behavior='dropdown-items']").html(items);
       },
-      error: function (jqXHR, textStatus, errorThrown) { console.log(textStatus); }
+      error: function (jqXHR, textStatus, errorThrown) { console.log(errorThrown); }
     });
   }
+
+  notificationIcon.click(function () {
+    $.ajax({
+      url: "/notifications/mark_as_read",
+      dataType: "JSON",
+      method: "POST",
+      success: function (data, textStatus, jqXHR) {
+        $(".unread-count").text('');
+      },
+    });
+  });
 
   $(".toggle-button").click(function () {
     $(".notification-section").toggleClass("show");

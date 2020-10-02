@@ -2,7 +2,7 @@
   <div class="single-event">
     <%= image_tag(event.event_image_url, alt: event.title, class:"single-event__img") %>
     <div class="single-event__content">
-      <h5><%= event.title.humanize %></h5>
+      <%= link_to event.title.humanize, event_path(event), class: "single-event__title" %>
       <p><%= event.address%></p>
       <p>Price: $ <%= event.price%></p>
     </div>

@@ -8,7 +8,7 @@ class AttendencesController < ApplicationController
     else
       attendence = @event.attendences.create(attendee_id: current_user.id)
       if attendence.save
-        Notification.create(recipient: @event.user, actor: current_user, action: "joined", notifiable: @event)
+        Notification.create!(recipient: @event.user, actor: current_user, action: "joined", notifiable: @event)
         flash[:success] = 'You joined the event'
       else
         flash[:danger] = 'Please enter correct info.'

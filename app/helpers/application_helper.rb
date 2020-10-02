@@ -28,12 +28,14 @@ module ApplicationHelper
   end
 
   def display_join_button(event, css_class)
-    if current_user
-      return (button_to "Join Event", event_attendences_path(event), class: css_class, method: :post) unless event.attendees.include?(current_user) || already_happened?(event)
-
-      raw("<button type='button' class=#{css_class} disabled>Already Joined</button>")
+    if !already_happened?(event)
+      if current_user && event.attendees.include?(current_user)
+        raw("<button type='button' class=#{css_class} disabled>Already Joined</button>")
+      else
+        return (button_to "Join Event", event_attendences_path(event), class: css_class, method: :post)
+      end
     else
-      return (button_to "Join Event", event_attendences_path(event), class: css_class, method: :post)
+      raw("<button type='button' class=#{css_class} disabled>Already happened</button>")
     end
   end
 

@@ -1,3 +1,48 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.single-event {
+  display: grid;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+  grid-template-areas: 'img content content'
+      'img content content'
+      'button button button';
+      padding: 5px;
+      font-family: 'Roboto', sans-serif;
+
+  &__img {
+    grid-area: img;
+    width: 15rem;
+    height: 10rem;
+    margin-right: 1.5rem;
+  }
+
+  &__title {
+    color: black;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 0;
+    padding-top: 0;
+    &:hover {
+      text-decoration: none;
+      color: #0056b3;
+    }
+  }
+
+  &__content {
+    grid-area: content;
+
+    p {
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+    }
+  }
+  &__buttons {
+    grid-area: button;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+}

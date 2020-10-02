@@ -16,6 +16,7 @@
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500&display=swap');
 @import "attendences";
+@import "events";
 
 body {
   font-size: 10px;
@@ -47,13 +48,22 @@ align-items: center;
 }
 
 .toggle-button {
-  margin: 0 1rem;
+  margin: 0 0 1rem 0;
   font-size: 1.5rem;
   color: #aaa;
 
   &:hover {
     color:#0056b3;
   }
+}
+
+.dropdown-toggle {
+  margin-right: 1rem;
+}
+
+.navbar-profile-image {
+  border-radius: 50%;
+  margin-right: 0;
 }
 
 .dropdown-list {
@@ -128,43 +138,6 @@ align-items: center;
   }
 }
 
-.single-event {
-  display: grid;
-  padding: 0.5rem 0;
-  margin: 0.5rem 0;
-  grid-template-areas: 'img content content'
-      'img content content'
-      'button button button';
-      padding: 5px;
-      font-family: 'Roboto', sans-serif;
-
-  &__img {
-    grid-area: img;
-    width: 15rem;
-    height: 10rem;
-    margin-right: 1.5rem;
-  }
-  &__content {
-    grid-area: content;
-
-    h5 {
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    p {
-      margin-bottom: 0.5rem;
-      font-size: 0.8rem;
-    }
-  }
-  &__buttons {
-    grid-area: button;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0.5rem 0;
-  }
-}
 .join-button {
   width: 15rem;
   border-radius: 0;
@@ -242,8 +215,25 @@ align-items: center;
   display: block;
 }
 
-.dropdown-item {
+.item {
   width: 100%;
+  padding-left: 1rem;
+  display: inline-block;
+}
+
+.full-name {
+  font-weight: 800;
+  color: #212529;
+
+  &:hover {
+    color: #0056b3;
+    font-style: italic;
+    text-decoration: none;
+  }
+}
+
+.event-title {
+  font-weight: 800;
 }
 @media screen and (max-width: 1024px) and (min-width: 768px) {
   body {
