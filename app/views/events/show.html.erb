@@ -2,7 +2,7 @@
 
 <main class="event-show-section">
   <div class="full-event mr-auto col-md-7 col-sm-12">
-  <%= image_tag(@event.event_image_url, size: 100, class: 'full-event__img')%>
+  <%= cl_image_tag(@event.event_image, size: 100, class: 'full-event__img')%>
     <h3><%= @event.title %></h3>
     <p><%= @event.features %></p>
     <div class="event__address">Happening in: <%=@event.address%></div>
