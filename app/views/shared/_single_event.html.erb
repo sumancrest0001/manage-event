@@ -1,6 +1,6 @@
 <% local_assigns[:event].each do |event| %>
   <div class="single-event">
-    <%= cl_image_tag(url_for(event.event_image),  alt: event.title, class:"single-event__img") %>
+    <%= image_tag(cloudinary_url(event.event_image.key),  alt: event.title, class:"single-event__img") %>
     <div class="single-event__content">
       <%= link_to event.title.humanize, event_path(event), class: "single-event__title" %>
       <p><%= event.address%></p>

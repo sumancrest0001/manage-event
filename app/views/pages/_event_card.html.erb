@@ -1,7 +1,7 @@
 
 <% local_assigns[:events].each do |event| %>
   <div class="card event">
-    <%= cl_image_tag(url_for(event.event_image), :cloud_name => "dkrunzl9g", alt:"event image", class:"event__img") %>
+    <%= image_tag(cloudinary_url(event.event_image.key), :cloud_name => "dkrunzl9g", alt:"event image", class:"event__img") %>
     <div class="card-body">
       <h4><%= link_to event.title, event_path(event) %></h4>
       <div class="d-flex my-2">
