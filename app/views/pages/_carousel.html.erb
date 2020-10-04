@@ -12,7 +12,7 @@
       <% else %>
       <div class="carousel-item">
       <% end %>
-        <%= link_to image_tag(cloudinary_url(latest_event.event_image.key), :cloud_name => "dkrunzl9g", class: "d-block carousel-item-image", alt: "event-#{index}"), event_path(latest_event) %>
+        <%= link_to image_tag(cloudinary_url(latest_event.event_image.key, cloud_name: "dkrunzl9g"), :cloud_name => "dkrunzl9g", class: "d-block carousel-item-image", alt: "event-#{index}"), event_path(latest_event) %>
         <div class="carousel-caption d-none d-md-block">
           <h5><%= latest_event.title %></h5>
           <p><%= latest_event.date %></p>
